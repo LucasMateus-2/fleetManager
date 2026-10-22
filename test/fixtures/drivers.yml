@@ -1,0 +1,11 @@
+one:
+  name: Carlos Souza
+  cnh: "12345678900"
+  cnh_expiration: <%= Date.current + 1.year %>
+  vehicle: one
+
+two:
+  name: Ana Lima
+  cnh: "23456789011"
+  cnh_expiration: <%= Date.current + 1.year %>
+  vehicle: two

@@ -1,0 +1,23 @@
+<h1 class="h3 mb-3 d-flex justify-content-between align-items-center">
+  Veículos
+  <%= link_to "Novo veículo", new_vehicle_path, class: "btn btn-primary" %>
+</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Placa</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Tipo</th>
+        <th>Status</th>
+        <th>Hodômetro</th>
+        <th class="text-end">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @vehicles %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 mb-0">Abastecimento #<%= @fueling.id %></h1>
+  <div>
+    <%= link_to "Editar", edit_fueling_path(@fueling), class: "btn btn-outline-secondary" %>
+    <%= link_to "Voltar", fuelings_path, class: "btn btn-link" %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <dl class="row mb-0">
+      <dt class="col-sm-3">Data</dt>
+      <dd class="col-sm-9"><%= format_date(@fueling.date) %></dd>
+
+      <dt class="col-sm-3">Veículo</dt>
+      <dd class="col-sm-9"><%= @fueling.vehicle.label %></dd>
+
+      <dt class="col-sm-3">Litros</dt>
+      <dd class="col-sm-9"><%= format_decimal(@fueling.liters) %> L</dd>
+
+      <dt class="col-sm-3">Valor</dt>
+      <dd class="col-sm-9"><%= format_currency(@fueling.cost) %></dd>
+
+      <dt class="col-sm-3">km</dt>
+      <dd class="col-sm-9"><%= format_km(@fueling.odometer) %> km</dd>
+
+      <dt class="col-sm-3">Consumo médio</dt>
+      <dd class="col-sm-9"><%= format_decimal(@fueling.consumption_km_l) %> km/l</dd>
+
+      <dt class="col-sm-3">Custo por km</dt>
+      <dd class="col-sm-9">R$ <%= format_decimal(@fueling.cost_per_km, precision: 3) %></dd>
+    </dl>
+  </div>
+</div>

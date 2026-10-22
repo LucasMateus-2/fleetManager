@@ -1,0 +1,50 @@
+<%= form_with(model: maintenance_order) do |form| %>
+  <%= render "shared/error_messages", model: maintenance_order %>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <%= form.label :vehicle_id, "Veículo", class: "form-label" %>
+      <%= form.collection_select :vehicle_id, Vehicle.order(:model), :id, :label, { include_blank: "Selecione..." }, class: "form-select" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :kind, "Tipo", class: "form-label" %>
+      <%= form.select :kind, maintenance_kind_options, {}, class: "form-select" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :status, "Situação", class: "form-label" %>
+      <%= form.select :status, maintenance_status_options, {}, class: "form-select" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :opened_at, "Data de abertura", class: "form-label" %>
+      <%= form.date_field :opened_at, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :scheduled_for, "Data agendada", class: "form-label" %>
+      <%= form.date_field :scheduled_for, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :odometer, "km no momento", class: "form-label" %>
+      <%= form.number_field :odometer, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :released_at, "Data de saída", class: "form-label" %>
+      <%= form.date_field :released_at, class: "form-control" %>
+    </div>
+
+    <div class="col-12">
+      <%= form.label :description, "O que foi feito", class: "form-label" %>
+      <%= form.text_area :description, class: "form-control", rows: 3 %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", maintenance_orders_path, class: "btn btn-link" %>
+  </div>
+<% end %>

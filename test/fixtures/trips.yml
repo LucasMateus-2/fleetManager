@@ -1,0 +1,13 @@
+one:
+  vehicle: one
+  driver: one
+  started_at: <%= Time.current - 10.days %>
+  ended_at: <%= Time.current - 9.days %>
+  distance_km: 300
+
+two:
+  vehicle: two
+  driver: two
+  started_at: <%= Time.current - 2.days %>
+  ended_at: <%= Time.current - 1.day %>
+  distance_km: 150

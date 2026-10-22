@@ -1,0 +1,19 @@
+<tr>
+  <td><%= trip.vehicle.label %></td>
+  <td><%= trip.driver.name %></td>
+  <td><%= format_datetime(trip.started_at) %></td>
+  <td><%= trip.ended_at ? format_datetime(trip.ended_at) : "—" %></td>
+  <td><%= format_km(trip.distance_km) %> km</td>
+  <td>
+    <% if trip.ongoing? %>
+      <span class="badge text-bg-primary">Em andamento</span>
+    <% else %>
+      <span class="badge text-bg-success">Concluída</span>
+    <% end %>
+  </td>
+  <td class="text-end">
+    <%= link_to "Ver", trip, class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Editar", edit_trip_path(trip), class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Excluir", trip, data: { turbo_method: :delete, turbo_confirm: "Excluir esta viagem?" }, class: "btn btn-sm btn-outline-danger" %>
+  </td>
+</tr>

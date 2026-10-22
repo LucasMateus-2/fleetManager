@@ -1,0 +1,21 @@
+<h1 class="h3 mb-3 d-flex justify-content-between align-items-center">
+  Motoristas
+  <%= link_to "Novo motorista", new_driver_path, class: "btn btn-primary" %>
+</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>CNH</th>
+        <th>Validade da CNH</th>
+        <th>Veículo vinculado</th>
+        <th class="text-end">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @drivers %>
+    </tbody>
+  </table>
+</div>

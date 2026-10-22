@@ -1,0 +1,74 @@
+<h1 class="h3 mb-4">Dashboard</h1>
+
+<div class="row g-3 mb-4">
+  <div class="col-md-3">
+    <div class="card text-bg-success h-100">
+      <div class="card-body">
+        <h6 class="card-title text-uppercase small">Veículos ativos</h6>
+        <p class="display-6 mb-0"><%= @vehicles_active %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-bg-warning h-100">
+      <div class="card-body">
+        <h6 class="card-title text-uppercase small">Em manutenção</h6>
+        <p class="display-6 mb-0"><%= @vehicles_in_maintenance %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-bg-primary h-100">
+      <div class="card-body">
+        <h6 class="card-title text-uppercase small">Custos do mês</h6>
+        <p class="display-6 mb-0"><%= format_currency(@month_cost) %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card text-bg-danger h-100">
+      <div class="card-body">
+        <h6 class="card-title text-uppercase small">Alertas (30 dias)</h6>
+        <p class="display-6 mb-0"><%= @document_alerts.size + @maintenance_alerts.size %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row g-4">
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Documentos vencendo em 30 dias</div>
+      <ul class="list-group list-group-flush">
+        <% if @document_alerts.empty? %>
+          <li class="list-group-item text-muted">Nenhum documento próximo do vencimento.</li>
+        <% else %>
+          <% @document_alerts.each do |alert| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><strong><%= alert[:vehicle].plate %></strong> — <%= alert[:vehicle].model %></span>
+              <span class="badge text-bg-warning"><%= document_label(alert[:document]) %>: <%= format_date(alert[:expiration]) %></span>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header">Manutenções vencendo em 30 dias</div>
+      <ul class="list-group list-group-flush">
+        <% if @maintenance_alerts.empty? %>
+          <li class="list-group-item text-muted">Nenhuma manutenção agendada para os próximos 30 dias.</li>
+        <% else %>
+          <% @maintenance_alerts.each do |order| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <span><strong><%= order.vehicle.plate %></strong> — <%= maintenance_kind_label(order.kind) %></span>
+              <span class="badge text-bg-warning">Agendada: <%= format_date(order.scheduled_for) %></span>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

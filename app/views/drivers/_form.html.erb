@@ -1,0 +1,30 @@
+<%= form_with(model: driver) do |form| %>
+  <%= render "shared/error_messages", model: driver %>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <%= form.label :name, "Nome", class: "form-label" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :cnh, "CNH", class: "form-label" %>
+      <%= form.text_field :cnh, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :cnh_expiration, "Validade da CNH", class: "form-label" %>
+      <%= form.date_field :cnh_expiration, class: "form-control" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :vehicle_id, "Veículo vinculado", class: "form-label" %>
+      <%= form.collection_select :vehicle_id, Vehicle.order(:model), :id, :label, { include_blank: "— Nenhum —" }, class: "form-select" %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", drivers_path, class: "btn btn-link" %>
+  </div>
+<% end %>

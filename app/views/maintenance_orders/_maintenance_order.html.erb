@@ -1,0 +1,15 @@
+<tr>
+  <td><%= maintenance_order.vehicle.model %></td>
+  <td><%= maintenance_order.vehicle.plate %></td>
+  <td><%= maintenance_kind_label(maintenance_order.kind) %></td>
+  <td><%= maintenance_status_badge(maintenance_order.status) %></td>
+  <td><%= format_date(maintenance_order.opened_at) %></td>
+  <td><%= format_date(maintenance_order.scheduled_for) %></td>
+  <td><%= format_km(maintenance_order.odometer) %> km</td>
+  <td><%= maintenance_order.released_at ? format_date(maintenance_order.released_at) : "Em andamento" %></td>
+  <td class="text-end">
+    <%= link_to "Ver", maintenance_order, class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Editar", edit_maintenance_order_path(maintenance_order), class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Excluir", maintenance_order, data: { turbo_method: :delete, turbo_confirm: "Excluir esta ordem de serviço?" }, class: "btn btn-sm btn-outline-danger" %>
+  </td>
+</tr>

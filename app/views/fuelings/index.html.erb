@@ -1,0 +1,24 @@
+<h1 class="h3 mb-3 d-flex justify-content-between align-items-center">
+  Abastecimento
+  <%= link_to "Novo abastecimento", new_fueling_path, class: "btn btn-primary" %>
+</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Veículo</th>
+        <th>Litros</th>
+        <th>Valor</th>
+        <th>km</th>
+        <th>Consumo (km/l)</th>
+        <th>Custo por km</th>
+        <th class="text-end">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @fuelings %>
+    </tbody>
+  </table>
+</div>

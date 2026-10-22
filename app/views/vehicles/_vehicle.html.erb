@@ -1,0 +1,13 @@
+<tr>
+  <td><strong><%= vehicle.plate %></strong></td>
+  <td><%= vehicle.model %></td>
+  <td><%= vehicle.year %></td>
+  <td><%= vehicle.kind %></td>
+  <td><%= vehicle_status_badge(vehicle.status) %></td>
+  <td><%= format_km(vehicle.odometer) %> km</td>
+  <td class="text-end">
+    <%= link_to "Ver", vehicle, class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Editar", edit_vehicle_path(vehicle), class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Excluir", vehicle, data: { turbo_method: :delete, turbo_confirm: "Excluir este veículo?" }, class: "btn btn-sm btn-outline-danger" %>
+  </td>
+</tr>

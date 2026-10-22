@@ -1,0 +1,2 @@
+module FuelingsHelper
+end

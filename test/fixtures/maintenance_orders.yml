@@ -1,0 +1,19 @@
+one:
+  vehicle: one
+  kind: 0
+  status: 0
+  opened_at: <%= Date.current - 5 %>
+  scheduled_for: <%= Date.current + 5 %>
+  odometer: 10000
+  released_at:
+  description:
+
+two:
+  vehicle: two
+  kind: 1
+  status: 2
+  opened_at: <%= Date.current - 30 %>
+  scheduled_for: <%= Date.current - 28 %>
+  odometer: 20000
+  released_at: <%= Date.current - 27 %>
+  description: Troca de óleo

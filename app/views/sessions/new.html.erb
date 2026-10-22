@@ -1,0 +1,27 @@
+<div class="row justify-content-center">
+  <div class="col-md-5 col-lg-4">
+    <div class="card mt-5 shadow-sm">
+      <div class="card-body p-4">
+        <h4 class="card-title mb-4 text-center">Acessar o sistema</h4>
+
+        <%= form_with url: session_path, class: "mb-3" do |form| %>
+          <div class="mb-3">
+            <%= form.label :email_address, "E-mail", class: "form-label" %>
+            <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", value: params[:email_address], class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :password, "Senha", class: "form-label" %>
+            <%= form.password_field :password, required: true, autocomplete: "current-password", maxlength: 72, class: "form-control" %>
+          </div>
+
+          <%= form.submit "Entrar", class: "btn btn-primary w-100" %>
+        <% end %>
+
+        <p class="text-muted small text-center mb-0">
+          Demonstração: admin@frota.com.br / senha123
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

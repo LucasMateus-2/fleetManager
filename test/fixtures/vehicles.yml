@@ -1,0 +1,21 @@
+one:
+  plate: ABC1D23
+  model: Toyota Corolla
+  year: 2022
+  kind: Sedan
+  status: 0
+  odometer: 10000
+  crlv_expiration: <%= Date.current + 100 %>
+  insurance_expiration: <%= Date.current + 100 %>
+  ipva_expiration: <%= Date.current + 100 %>
+
+two:
+  plate: DEF2E34
+  model: VW Gol
+  year: 2020
+  kind: Hatch
+  status: 0
+  odometer: 20000
+  crlv_expiration: <%= Date.current + 100 %>
+  insurance_expiration: <%= Date.current + 100 %>
+  ipva_expiration: <%= Date.current + 100 %>

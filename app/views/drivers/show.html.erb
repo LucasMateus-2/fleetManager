@@ -1,0 +1,30 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h1 class="h3 mb-0"><%= @driver.name %></h1>
+  <div>
+    <%= link_to "Editar", edit_driver_path(@driver), class: "btn btn-outline-secondary" %>
+    <%= link_to "Voltar", drivers_path, class: "btn btn-link" %>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <dl class="row mb-0">
+      <dt class="col-sm-3">Nome</dt>
+      <dd class="col-sm-9"><%= @driver.name %></dd>
+
+      <dt class="col-sm-3">CNH</dt>
+      <dd class="col-sm-9"><%= @driver.cnh %></dd>
+
+      <dt class="col-sm-3">Validade da CNH</dt>
+      <dd class="col-sm-9">
+        <%= format_date(@driver.cnh_expiration) %>
+        <% if @driver.cnh_expired? %>
+          <span class="badge text-bg-danger">Vencida</span>
+        <% end %>
+      </dd>
+
+      <dt class="col-sm-3">Veículo vinculado</dt>
+      <dd class="col-sm-9"><%= @driver.vehicle&.label || "—" %></dd>
+    </dl>
+  </div>
+</div>

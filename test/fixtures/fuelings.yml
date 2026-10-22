@@ -1,0 +1,13 @@
+one:
+  vehicle: one
+  date: <%= Date.current - 10 %>
+  liters: 40.0
+  cost: 240.00
+  odometer: 9500
+
+two:
+  vehicle: one
+  date: <%= Date.current - 5 %>
+  liters: 38.5
+  cost: 235.00
+  odometer: 10000

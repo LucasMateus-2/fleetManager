@@ -1,0 +1,35 @@
+<%= form_with(model: fueling) do |form| %>
+  <%= render "shared/error_messages", model: fueling %>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <%= form.label :vehicle_id, "Veículo", class: "form-label" %>
+      <%= form.collection_select :vehicle_id, Vehicle.order(:model), :id, :label, { include_blank: "Selecione..." }, class: "form-select" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :date, "Data", class: "form-label" %>
+      <%= form.date_field :date, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :liters, "Litros", class: "form-label" %>
+      <%= form.number_field :liters, step: "0.01", class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :cost, "Valor (R$)", class: "form-label" %>
+      <%= form.number_field :cost, step: "0.01", class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :odometer, "km", class: "form-label" %>
+      <%= form.number_field :odometer, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", fuelings_path, class: "btn btn-link" %>
+  </div>
+<% end %>

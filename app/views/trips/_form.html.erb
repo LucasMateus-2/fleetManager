@@ -1,0 +1,35 @@
+<%= form_with(model: trip) do |form| %>
+  <%= render "shared/error_messages", model: trip %>
+
+  <div class="row g-3">
+    <div class="col-md-4">
+      <%= form.label :vehicle_id, "Veículo", class: "form-label" %>
+      <%= form.collection_select :vehicle_id, Vehicle.order(:model), :id, :label, { include_blank: "Selecione..." }, class: "form-select" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :driver_id, "Motorista", class: "form-label" %>
+      <%= form.collection_select :driver_id, Driver.order(:name), :id, :name, { include_blank: "Selecione..." }, class: "form-select" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :started_at, "Início", class: "form-label" %>
+      <%= form.datetime_local_field :started_at, class: "form-control" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :ended_at, "Fim", class: "form-label" %>
+      <%= form.datetime_local_field :ended_at, class: "form-control" %>
+    </div>
+
+    <div class="col-md-4">
+      <%= form.label :distance_km, "km rodados", class: "form-label" %>
+      <%= form.number_field :distance_km, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", trips_path, class: "btn btn-link" %>
+  </div>
+<% end %>

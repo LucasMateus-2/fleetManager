@@ -1,0 +1,16 @@
+<tr>
+  <td><%= driver.name %></td>
+  <td><%= driver.cnh %></td>
+  <td>
+    <%= format_date(driver.cnh_expiration) %>
+    <% if driver.cnh_expired? %>
+      <span class="badge text-bg-danger">Vencida</span>
+    <% end %>
+  </td>
+  <td><%= driver.vehicle&.label || "—" %></td>
+  <td class="text-end">
+    <%= link_to "Ver", driver, class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Editar", edit_driver_path(driver), class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to "Excluir", driver, data: { turbo_method: :delete, turbo_confirm: "Excluir este motorista?" }, class: "btn btn-sm btn-outline-danger" %>
+  </td>
+</tr>

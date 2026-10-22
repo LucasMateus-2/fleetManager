@@ -1,0 +1,55 @@
+<%= form_with(model: vehicle) do |form| %>
+  <%= render "shared/error_messages", model: vehicle %>
+
+  <div class="row g-3">
+    <div class="col-md-3">
+      <%= form.label :plate, "Placa", class: "form-label" %>
+      <%= form.text_field :plate, class: "form-control", placeholder: "ABC1D23" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :model, "Modelo", class: "form-label" %>
+      <%= form.text_field :model, class: "form-control" %>
+    </div>
+
+    <div class="col-md-2">
+      <%= form.label :year, "Ano", class: "form-label" %>
+      <%= form.number_field :year, class: "form-control" %>
+    </div>
+
+    <div class="col-md-2">
+      <%= form.label :kind, "Tipo", class: "form-label" %>
+      <%= form.text_field :kind, class: "form-control", placeholder: "Sedan, Picape..." %>
+    </div>
+
+    <div class="col-md-2">
+      <%= form.label :status, "Status", class: "form-label" %>
+      <%= form.select :status, vehicle_status_options, {}, class: "form-select" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :odometer, "Hodômetro (km)", class: "form-label" %>
+      <%= form.number_field :odometer, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :crlv_expiration, "Vencimento CRLV", class: "form-label" %>
+      <%= form.date_field :crlv_expiration, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :insurance_expiration, "Vencimento Seguro", class: "form-label" %>
+      <%= form.date_field :insurance_expiration, class: "form-control" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= form.label :ipva_expiration, "Vencimento IPVA", class: "form-label" %>
+      <%= form.date_field :ipva_expiration, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit "Salvar", class: "btn btn-primary" %>
+    <%= link_to "Cancelar", vehicles_path, class: "btn btn-link" %>
+  </div>
+<% end %>
