@@ -21,7 +21,7 @@ gem "stimulus-rails"
 gem "bcrypt", "~> 3.1.7"
 
 # Pagination [https://ddnexus.github.io/pagy/]
-gem "pagy", "~> 9.0"
+gem "pagy", "~> 43.8"
 
 # CSV export (removed from Ruby's stdlib in Ruby 4)
 gem "csv"
